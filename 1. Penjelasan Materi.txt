@@ -1,0 +1,193 @@
+->Stack
+Pengertian Stack pada Struktur Data adalah sebagai tumpukan dari benda, sekumpulan data yang seolah-olah diletakkan di atas data yang lain, koleksi dari objek-objek homogen, atau Suatu urutan elemen yang elemennya dapat diambil dan ditambah hanya pada posisi akhir (top) saja. Stack pada Struktur Data dapat diilustrasikan dengan dua buah kotak yang ditumpuk, kotak yang satu akan ditumpuk diatas kotak yang lainnya. Jika kemudian stack 2 kotak tadi, ditambah kotak ketiga, keempat, kelima, dan seterusnya, maka akan diperoleh sebuah stack kotak yang terdiri dari N kotak. 
+ 
+
+Stack bersifat LIFO (Last In First Out) artinya Benda yang terakhir masuk ke dalam stack akan menjadi yang pertama keluar dari stack 
+
+Operasi-operasi yang biasanya tredapat pada Stack yaitu:
+1. Push : digunakan untuk menambah item pada stack pada tumpukan paling atas
+2. Pop : digunakan untuk mengambil item pada stack pada tumpukan paling atas
+3. Clear : digunakan untuk mengosongkan stack
+4. IsEmpty : fungsi yang digunakan untuk mengecek apakah stack sudah kosong
+5. IsFull : fungsi yang digunakan untuk mengecek apakah stack sudah penuh
+
+Cara mendefenisikan Stack dengan Array of Struct yaitu:
+1. Definisikan Stack dengan menggunakan struct
+2. Definisikan konstanta MAX_STACK untuk menyimpan maksimum isi stack
+3. Buatlah variabel array data sebagai implementasi stack
+4. Deklarasikan operasi-operasi/function di atas dan buat implemetasinya.
+
+-> Queue
+Queue pada Struktur Data atau antrian adalah sekumpulan data yang mana penambahan elemen hanya bisa dilakukan pada suatu ujung disebut dengan sisibelakang(rear), dan penghapusan(pengambilan elemen) dilakukan lewat ujung lain (disebut dengan sisi depan atau front). 
+Pada Stack atau tumpukan menggunakan prinsip“Masuk terakhir keluar pertama”atau LIFO (Last In First Out), Maka pada Queue atau antrian prinsip yang digunakan adalah “Masuk Pertama Keluar Pertama” atau FIFO (First In First Out).
+Queue atau antrian banyak kita jumpai dalam kehidupan sehari-hari, ex: antrian Mobil diloket Tol, Antrian mahasiswa Mendaftar, dll.
+Contoh lain dalam bidang komputer adalah pemakaian sistem komputer berbagi waktu(time-sharing computer system) dimana ada sejumlah pemakai yang akan menggunakan sistem tersebut secara serempak.
+Pada Queue atau antrian Terdapat satu buah pintu masuk di suatu ujung dan satu buah pintu keluar di ujung satunya dimana membutuhkan variabel Head dan Tail ( depan/front, belakang/rear).
+
+Karakteristik Queue atau antrian :
+1. elemen antrian
+2. front (elemen terdepan antrian)
+3. tail (elemen terakhir)
+4. jumlah elemen pada antrian
+5. status antrian
+
+Operasi pada Queue atau antrian
+1. tambah(menambah item pada belakang antrian)
+2. hapus (menghapus elemen depan dari antrian)
+3. kosong( mendeteksi apakah pada antrian mengandung elemen atau tidak)
+
+Operasi-operasi Queue :
+1. Create()
+Untuk menciptakan dan menginisialisasi Queue
+Dengan cara membuat Head dan Tail  = -1
+
+ 
+ 
+ 
+ 
+2. IsEmpty()
+Untuk memeriksa apakah Antrian sudah penuh atau belum
+Dengan cara memeriksa nilai Tail, jika Tail = -1 maka empty
+Kita tidak memeriksa Head, karena Head adalah tanda untuk kepala antrian (elemen pertama dalam antrian) yang tidak akan berubah-ubah
+Pergerakan pada Antrian terjadi dengan penambahan elemen Antrian kebelakang, yaitu menggunakan nilai Tail.
+ 
+ 
+3. IsFull
+Untuk mengecek apakah Antrian sudah penuh atau belum
+Dengan cara mengecek nilai Tail, jika Tail >= MAX-1 (karena MAX-1 adalah batas elemen array pada C) berarti sudah penuh
+ 
+ 
+ 
+4. Enqueue
+Untuk menambahkan elemen ke dalam Antrian, penambahan elemen selalu ditambahkan di elemen paling belakang
+Penambahan elemen selalu menggerakan variabel Tail dengan cara increment counter Tail terlebih dahulu
+ 
+ 
+5. Dequeue()
+Digunakan untuk menghapus elemen terdepan/pertama (head) dari Antrian
+Dengan cara menggeser semua elemen antrian kedepan dan mengurangi Tail dgn 1
+Penggeseran dilakukan dengan menggunakan looping.
+
+ 
+ 
+6. Clear()
+Untuk menghapus elemen-elemen Antrian dengan cara membuat Tail dan Head = -1
+Penghapusan elemen-elemen Antrian sebenarnya tidak menghapus arraynya, namun hanya mengeset indeks pengaksesan-nya ke nilai -1 sehingga elemen-elemen Antrian tidak lagi terbaca
+ 
+ 
+7. Tampil()
+Untuk menampilkan nilai-nilai elemen Antrian
+Menggunakan looping dari head s/d tail
+
+ 
+
+
+-> Infix, Prefix, dan Postfix
+notasi pada struktur data terdiri atas 3 macam, yaitu
+1. Prefix
+yaitu notasi yang terbentuk atas operator dengan operand, dimana operator berada didepan operand.
+Contoh :  A + B * C (Infix)
+maka notasi prefixnya adalah   +A*BC
+    Pemecahannya :
+                       A  +  B  *  C
+diketahaui ada 3 operand yaitu : A, B, C, dan 2 operator yaitu : +, *. Proses dimulai  dengan melihat dari hirarkhi operator. Contoh diatas operator yang tertinggi adalah * kemudian +.
+Tanda * diapit oleh dua operand yaitu B dan C yaitu B * C , prefixnya dengan menggabungkan operand dan memindahkan operator kedepan dari operand, sehingga fungsi B * C, notasi prefixnya menjadi *BC. Sehingga hasil sementara dari notasi prefix adalah
+       A + *BC
+selanjutnya mencari prefix untuk operator yang berikutnya, yaitu +, cara yang dilakukan sama seperti di atas, operator +, diapit oleh 2 operand, yaitu A dan *BC, gabungkan operand, sehingga menjadi A*BC, lalu pindahkan operator kedepan operand, sehingga hasil akhir menjadi
+      + A * B C
+Contoh yang lain:
+1.  A + B  – C * D
+        2     3    1   —–>    hirarkhi level
+     A + B – *CD   —–>    1
+     +AB – *CD     —–>    2
+     – +AB *CD     —–>    3
+2. A * B ^ C – D
+       2   1    3      —–>    hirarkhi
+    A * ^BC – D     —–>    1
+    *A^BC – D       —–>    2
+    -*A^BCD         —–>    3
+3.  A + ( B – C ) * D
+        3      1      2   —–> hirarkhi
+     A + -BC * D      —–>  1 (karena diapit tanda paranthesis atau kurung buka/tutup,( ) )
+     A + *-BCD        —–>  2
+     + A *-BCD        —–>  3 
+2. Infix
+yaitu notasi yang terbentuk atas operator dengan operand, dimana operator berada diantara operand. Notasi ini hanya dikenal oleh manusia dan selalu digunakan dalam perhitungan aritmatika.
+     Contoh :  A + B * C
+                    ( A + B ) * C
+                    A – ( B + C ) * D ^ E
+3. Postfix
+yaitu notasi yang terbentuk atas operator dengan operand, dimana operator berada dibelakang operand. Notasi ini hanya dikenal oleh processor dan dipahami dalam ALU. 
+     Contoh :  A + B * C (Infix)
+maka notasi postfixnya adalah   ABC*+
+    Pemecahannya :
+                       A  +  B  *  C
+diketahaui ada 3 operand yaitu : A, B, C, dan 2 operator yaitu : +, *. Proses dimulai  dengan melihat dari hirarkhi operator. Contoh diatas operator yang tertinggi adalah * kemudian +.
+Tanda * diapit oleh dua operand yaitu B dan C yaitu B * C , postfixnya dengan menggabungkan operand B dan C menjadi BC lalu memindahkan operator ke belakang operand C, sehingga fungsi B * C, notasi postfixnya menjadi BC*. Sehingga hasil sementara dari notasi postfix adalah
+REPORT THIS AD
+       A + BC*
+selanjutnya mencari postfix untuk operator yang berikutnya, yaitu +, cara yang dilakukan sama seperti di atas, operator +, diapit oleh 2 operand, yaitu A dan BC*, gabungkan operand tersebut, sehingga menjadi ABC*, lalu pindahkan operator + ke belakang operand ABC*, sehingga hasil akhir menjadi
+      ABC*+
+Contoh yang lain:
+1.  A + B  – C * D
+        2     3    1   —–>    hirarkhi level
+     A + B – CD*   —–>    1
+     AB+ – CD*     —–>    2
+     AB+CD*-       —–>    3
+2. A * B ^ C – D
+       2   1    3      —–>    hirarkhi
+    A * BC^ – D     —–>    1
+    ABC^* – D       —–>    2
+    ABC^*D-         —–>    3
+3.  A + ( B – C ) * D
+        3      1      2   —–> hirarkhi
+     A + BC- * D      —–>  1 (karena diapit tanda paranthesis atau kurung buka/tutup,( ) )
+     A + BC-D*        —–>  2
+     A BC-D*+         —–>  3 
+
+
+-> Ordered List
+Ordered List yaitu metode penyimpanan data atau mengumpulkan data lalu diurutkan secara ascending atau descending. 
+Ordered list menggunakan class yang bernama node, yang terdiri dari data sekarang dan data selanjutnya.
+Awal data pada Ordered list disebut Head sedangkan data akhir disebut tail. Data yang baru diambil dan diinputkan ditaruh disebelah kanan head.
+
+-> Unorder List
+Unordered list digunakan untuk menangkap data atau mengumpulkan data agar suatu data dapat terkumpul. Unorderedlist terjadi karena data yang diambil langsung dimasukan kedalam listtanpa diurutkan atau disorting terlebih dahulu. 
+Unordered list menggunakan class yang bernama node, yang terdiri dari data sekarang dan data selanjutnya.
+Awal data pada unordered list disebut Head sedangkan data akhir disebut tail. Data yang baru diambil dan diinputkan ditaruh disebelah kanan head.
+
+-> Double Link List
+Pengertian Double Linked List adalah sekumpulan node data yang terurut linear atau sekuensial dengan dua buah pointer yaitu prev dan next.  
+Double Linked List adalah linked list dengan node yang memiliki data dan dua buah reference link (biasanya disebut next dan prev) yang menunjuk ke node sebelum dan node sesudahnya. Pada implementasinya, terdapat dua variasi double linked list yaitu circular dan non-circular layaknya pada single linked list.
+
+Double linked list memiliki beberapa operasi dasar pada list, misalkan penyisipan, penghapusan, menampilkan maju, dan menampilkan mundur.
+Insert First
+  Penyisipan di awal list, sehingga pointer head juga akan berpindah ke elemen baru.
+Insert Last
+  Penyisipan di akhir list, sehingga pointer tail juga akan berpindah ke elemen baru.
+Insert After / Before
+  Penyisipan after/before kurang lebih sama satu sama lain. Pada kasus diatas berlaku juga insert before 3.
+Delete First
+  Penghapusan di awal list, pointer head akan berpindah ke node selanjutnya,sementara node awal akan di dealokasi.
+Delete Last
+  Penghapusan di akhir list, pointer tail akan berpindah ke node sebelumnya,sementara node akhir akan di dealokasi.
+Delete Node
+  Penghapusan node dengan data tertentu, pada kasus diatas yaitu delete node 2.
+
+
+-> Graph
+A. Definisi
+Graph adalah salah satu metode pemetaan data dengan memberikan informasi pada kumpulan titik (node) yang dihubungkan dengan segmen garis. Titik ini atau Node disebut vertekssedangkan segmen garis disebut dengan ruas (edge).
+
+B. Algoritma
+Alur program dari graph untuk mencari semua path, path terpendek, dan path terpanjang yang akan dicontohkan di kode program dibawah ini adalah :
+1. Membuat fungsi yang berisi paramater graph tersebut, permulaan path, akhir path, variabel tempat yang akan diisi path.
+2. Variabel tempat yang akan diisi path ditambah permulaan path.
+3. Jika permulaan path sama dengan akhir path maka variabel tempat yang akan diisi path di tampilkan.
+4. Jika permulaan path tidak berada di graph tersebut maka hasilnya adalah None atau tidak ada.
+5. Pengulangan dimulai dari graph yang berobjek permulaan path.
+6. Jika node tidak berada di path maka memulai fungsi pencarian nomor 1 dengan parametergraph tersebut,  node, akhir path, variabel terakhir yang akan diisi path.
+
+-> Tree
+    Tree adalah pemetaan data dalam bentuk hirarki seperti pohon, yang memiliki akar/root dan cabang/batang/subtree.
+Cara memetakan yaitu data pertama yang menjadi sebuah root. Lalu data kedua akan dicek jika data kurang dari root maka akan ditaruh disebelah kiri root sedangkan jika data lebih dari data root maka ditaruh disebelah kanan data root. Begitu seterusnya sampai data yang dimaksukkan habis.
